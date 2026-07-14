@@ -1,0 +1,148 @@
+/* Custom utility classes for the premium B2B SaaS aesthetic */
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-grid-fade {
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+.radial-glow {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    color-mix(in oklab, var(--glow-primary) 35%, transparent),
+    transparent 70%
+  );
+}
+
+.radial-glow-sm {
+  background: radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--glow-primary) 45%, transparent),
+    transparent 70%
+  );
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-hover {
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: color-mix(in oklab, var(--glass-bg) 100%, white 3%);
+  border-color: color-mix(in oklab, var(--glass-border) 100%, var(--glow-primary) 40%);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.65) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(90deg, #ff8a3d 0%, #ff6b00 60%, #d65600 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise {
+  position: relative;
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hero background system — gradient mesh, aurora glow, particle drift */
+
+@keyframes mesh-drift-1 {
+  0%, 100% { transform: translate(-8%, -6%) scale(1); }
+  50% { transform: translate(6%, 4%) scale(1.15); }
+}
+
+@keyframes mesh-drift-2 {
+  0%, 100% { transform: translate(6%, 4%) scale(1.1); }
+  50% { transform: translate(-8%, -4%) scale(0.95); }
+}
+
+@keyframes mesh-drift-3 {
+  0%, 100% { transform: translate(0%, 6%) scale(0.9); }
+  50% { transform: translate(4%, -6%) scale(1.05); }
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.mesh-blob-1 {
+  animation: mesh-drift-1 22s ease-in-out infinite;
+}
+
+.mesh-blob-2 {
+  animation: mesh-drift-2 26s ease-in-out infinite;
+}
+
+.mesh-blob-3 {
+  animation: mesh-drift-3 30s ease-in-out infinite;
+}
+
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) translateY(0) scaleX(1); }
+  50% { opacity: 0.85; transform: translateX(-50%) translateY(-2%) scaleX(1.08); }
+}
+
+.aurora-glow {
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  width: min(90vw, 1100px);
+  height: 520px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 30%,
+    color-mix(in oklab, var(--glow-primary) 55%, transparent),
+    color-mix(in oklab, var(--glow-primary) 18%, transparent) 45%,
+    transparent 75%
+  );
+  filter: blur(40px);
+  mix-blend-mode: screen;
+  animation: aurora-pulse 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: var(--particle-opacity, 0.6); }
+  90% { opacity: var(--particle-opacity, 0.6); }
+  100% { transform: translateY(-140px) translateX(var(--particle-drift-x, 20px)); opacity: 0; }
+}
+
+.particle-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--particle-color, var(--glow-primary));
+  animation: particle-drift var(--particle-duration, 12s) linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+  will-change: transform, opacity;
+}

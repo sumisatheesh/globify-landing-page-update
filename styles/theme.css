@@ -1,0 +1,86 @@
+/* Brand design tokens — black/orange premium B2B SaaS theme */
+
+:root {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --background: #070707;
+  --foreground: #ffffff;
+
+  --card: #0f0f0f;
+  --card-foreground: #ffffff;
+
+  --popover: #0f0f0f;
+  --popover-foreground: #ffffff;
+
+  --primary: #ff6b00;
+  --primary-foreground: #070707;
+
+  --secondary: #171717;
+  --secondary-foreground: #ffffff;
+
+  --muted: #141414;
+  --muted-foreground: #9a9a9a;
+
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #ff6b00;
+
+  --chart-1: #ff6b00;
+  --chart-2: #ffb066;
+  --chart-3: #9a9a9a;
+  --chart-4: #4d4d4d;
+  --chart-5: #262626;
+
+  --radius: 1.25rem;
+
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff6b00;
+  --sidebar-primary-foreground: #070707;
+  --sidebar-accent: #171717;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #ff6b00;
+
+  /* Brand-specific extensions beyond shadcn's token set */
+  --glow-primary: #ff6b00;
+  --grid-line: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* This product ships with a single, permanent dark theme — .dark mirrors
+   :root so any shadcn primitive that checks for it renders identically. */
+.dark {
+  --background: #070707;
+  --foreground: #ffffff;
+  --card: #0f0f0f;
+  --card-foreground: #ffffff;
+  --popover: #0f0f0f;
+  --popover-foreground: #ffffff;
+  --primary: #ff6b00;
+  --primary-foreground: #070707;
+  --secondary: #171717;
+  --secondary-foreground: #ffffff;
+  --muted: #141414;
+  --muted-foreground: #9a9a9a;
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #ff6b00;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff6b00;
+  --sidebar-primary-foreground: #070707;
+  --sidebar-accent: #171717;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #ff6b00;
+}
