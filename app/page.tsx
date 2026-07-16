@@ -6,7 +6,7 @@ import { Testimonials } from "@/sections/testimonials";
 import { WhyGlobify } from "@/sections/why-globify";
 import { Industries } from "@/sections/industries";
 import { Faq } from "@/sections/faq";
-import { Cta } from "@/sections/cta";
+import { Enquiry } from "@/sections/enquiry";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <WhyGlobify />
       <Industries />
       <Faq />
-      <Cta />
+      <Enquiry />
     </>
   );
 }

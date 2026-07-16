@@ -90,17 +90,25 @@ export function Hero() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
             <MagneticButton>
-              <Button className="h-12 gap-2 rounded-full px-6 text-sm font-semibold">
-                Book Free Shopify Consultation
-                <ArrowRight className="size-4" />
+              <Button
+                asChild
+                className="h-12 gap-2 rounded-full px-6 text-sm font-semibold"
+              >
+                <a href="#enquiry">
+                  Book Free Shopify Consultation
+                  <ArrowRight className="size-4" />
+                </a>
               </Button>
             </MagneticButton>
             <Button
+              asChild
               variant="outline"
               className="h-12 gap-2 rounded-full border-white/10 bg-white/[0.02] px-6 text-sm font-semibold text-white hover:bg-white/[0.06]"
             >
-              View Shopify Portfolio
-              <ArrowRight className="size-4" />
+              <a href="#work">
+                View Shopify Portfolio
+                <ArrowRight className="size-4" />
+              </a>
             </Button>
           </motion.div>
 
@@ -289,6 +297,7 @@ export function Hero() {
         visible={!inView}
         label="Ready to grow your store?"
         ctaText="Book consultation"
+        href="#enquiry"
       />
     </section>
   );

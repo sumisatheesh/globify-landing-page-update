@@ -95,12 +95,15 @@ export function Industries() {
           </div>
 
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="h-11 shrink-0 gap-2 rounded-full border-primary/40 bg-transparent px-6 text-sm text-primary hover:bg-primary/10"
           >
-            Let&rsquo;s Build Your Store
-            <ArrowRight className="size-4" />
+            <a href="#enquiry">
+              Let&rsquo;s Build Your Store
+              <ArrowRight className="size-4" />
+            </a>
           </Button>
         </motion.div>
       </div>

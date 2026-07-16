@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/lib/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { siteConfig } from "@/data/site";
 
 const geistSans = Geist({
@@ -51,6 +52,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </SmoothScroll>
+        <WhatsAppButton />
       </body>
     </html>
   );

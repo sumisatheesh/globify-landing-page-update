@@ -255,9 +255,14 @@ export function Portfolio() {
             </div>
 
             <MagneticButton className="relative shrink-0">
-              <Button className="h-12 gap-2 rounded-full px-6 text-sm font-semibold">
-                Book a Free Consultation
-                <ArrowRight className="size-4" />
+              <Button
+                asChild
+                className="h-12 gap-2 rounded-full px-6 text-sm font-semibold"
+              >
+                <a href="#enquiry">
+                  Book a Free Consultation
+                  <ArrowRight className="size-4" />
+                </a>
               </Button>
             </MagneticButton>
           </GlassCard>

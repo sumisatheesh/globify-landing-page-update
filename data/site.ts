@@ -4,6 +4,11 @@ export const siteConfig = {
   description:
     "Globify is a Dubai-based Shopify development agency helping UAE brands design, build, and scale high-performing Shopify stores that drive real results.",
   url: "https://globify.app",
+  whatsapp: {
+    number: "+971547308673",
+    display: "+971 54 730 8673",
+  },
+  email: "sales@globify.in",
 };
 
 export const navLinks = [
