@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Quote, Star, ArrowLeft, ArrowRight } from "lucide-react";
 import { GlassCard } from "@/components/shared/glass-card";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
-import { testimonials, testimonialStats } from "@/data/testimonials";
+import { testimonials } from "@/data/testimonials";
 
 export function Testimonials() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -121,38 +121,6 @@ export function Testimonials() {
           </motion.div>
         </div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="relative rounded-[20px] border border-primary/30 bg-white/[0.02] p-6 sm:p-8"
-        >
-          <div
-            className="absolute -bottom-px left-1/2 h-px w-1/3 -translate-x-1/2"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, color-mix(in oklab, var(--glow-primary) 80%, white 10%) 50%, transparent)",
-              boxShadow:
-                "0 0 16px 2px color-mix(in oklab, var(--glow-primary) 60%, transparent)",
-            }}
-          />
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-            {testimonialStats.map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3">
-                <stat.icon className="size-7 shrink-0 text-primary" />
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-white">
-                    {stat.value}
-                  </span>
-                  <span className="text-xs leading-tight text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

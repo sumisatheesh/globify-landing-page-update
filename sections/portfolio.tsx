@@ -3,12 +3,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Rocket } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import { GlassCard } from "@/components/shared/glass-card";
 import { PortfolioMockup } from "@/components/shared/portfolio-mockup";
-import { GlobeGlow } from "@/components/shared/globe-glow";
-import { MagneticButton } from "@/components/shared/magnetic-button";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
@@ -229,44 +226,6 @@ export function Portfolio() {
           </motion.div>
         )}
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-        >
-          <GlassCard className="relative flex flex-col items-center gap-6 overflow-hidden p-8 text-center sm:flex-row sm:justify-between sm:p-10 sm:text-left">
-            <GlobeGlow className="absolute -bottom-24 -left-24 size-64 sm:size-72" />
-
-            <div className="relative flex flex-col items-center gap-4 sm:flex-row">
-              <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl border border-primary/40 text-primary">
-                <Rocket className="size-6" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-xl font-bold text-white sm:text-2xl">
-                  Ready to Build Your Success Story?
-                </h3>
-                <p className="max-w-md text-sm text-muted-foreground">
-                  Let&rsquo;s build a Shopify store that drives growth,
-                  maximizes conversions, and takes your brand to the next
-                  level.
-                </p>
-              </div>
-            </div>
-
-            <MagneticButton className="relative shrink-0">
-              <Button
-                asChild
-                className="h-12 gap-2 rounded-full px-6 text-sm font-semibold"
-              >
-                <a href="#enquiry">
-                  Book a Free Consultation
-                  <ArrowRight className="size-4" />
-                </a>
-              </Button>
-            </MagneticButton>
-          </GlassCard>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingCart } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { industries } from "@/data/industries";
 
@@ -71,41 +69,6 @@ export function Industries() {
           ))}
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="flex flex-col items-center gap-6 rounded-[20px] border border-primary/30 bg-white/[0.02] p-6 sm:flex-row sm:justify-between sm:p-8"
-        >
-          <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-primary/40 text-primary">
-              <ShoppingCart className="size-6" />
-            </span>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-bold text-white sm:text-xl">
-                Your industry. Your audience.{" "}
-                <span className="text-primary">Our e-commerce expertise.</span>
-              </h3>
-              <p className="max-w-md text-sm text-muted-foreground">
-                No matter your industry, we create scalable, conversion-focused
-                e-commerce stores that deliver real results.
-              </p>
-            </div>
-          </div>
-
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="h-11 shrink-0 gap-2 rounded-full border-primary/40 bg-transparent px-6 text-sm text-primary hover:bg-primary/10"
-          >
-            <a href="#enquiry">
-              Let&rsquo;s Build Your Store
-              <ArrowRight className="size-4" />
-            </a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
