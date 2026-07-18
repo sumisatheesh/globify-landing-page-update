@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingCard } from "@/components/shared/floating-card";
 import { MagneticButton } from "@/components/shared/magnetic-button";
@@ -211,6 +211,30 @@ export function Hero() {
                 )}
               </div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Happy clients banner */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.7 }}
+          className="glass glass-hover mx-auto mt-6 flex w-full max-w-3xl items-center justify-center gap-4 rounded-2xl px-6 py-5 sm:px-8"
+        >
+          <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+            <Users className="size-7" />
+          </span>
+          <span className="text-3xl font-bold text-white sm:text-4xl">
+            100+
+          </span>
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold tracking-wide text-white uppercase sm:text-base">
+              Happy Clients
+            </span>
+            <span className="text-sm text-muted-foreground">
+              Trusted by global brands
+            </span>
           </div>
         </motion.div>
 

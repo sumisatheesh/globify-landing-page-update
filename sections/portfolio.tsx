@@ -43,10 +43,10 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
       <div className="flex items-center justify-between gap-3">
         <span
           className={cn(
-            "flex h-14 w-44 shrink-0 items-center justify-center rounded-2xl",
+            "flex h-14 shrink-0 items-center justify-center rounded-2xl",
             project.logo
-              ? "bg-white px-4 py-2.5"
-              : "border border-primary/40 px-3.5 text-xs font-semibold tracking-wide text-primary"
+              ? "w-fit max-w-[240px] bg-white px-4 py-2.5"
+              : "w-44 border border-primary/40 px-3.5 text-xs font-semibold tracking-wide text-primary"
           )}
         >
           {project.logo ? (
@@ -55,7 +55,7 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
               alt={project.brand}
               width={320}
               height={80}
-              className="h-full w-36 object-contain"
+              className="h-full w-auto max-w-[208px] object-contain"
             />
           ) : (
             <span className="truncate">{project.brand}</span>

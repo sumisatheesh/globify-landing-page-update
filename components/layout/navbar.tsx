@@ -8,9 +8,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { EnquiryModal } from "@/components/shared/enquiry-modal";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
@@ -39,10 +41,12 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm" className="text-white/80 hover:text-white">
-            Sign in
-          </Button>
-          <Button size="sm" className="rounded-full px-4">
+
+          <Button
+            size="sm"
+            onClick={() => setIsEnquiryOpen(true)}
+            className="rounded-full px-4"
+          >
             Get started
           </Button>
         </div>
@@ -78,14 +82,24 @@ export function Navbar() {
               </Link>
             ))}
             <div className="mt-2 flex flex-col gap-2 border-t border-white/10 pt-3">
-              <Button variant="ghost" size="sm" className="justify-center text-white/80">
-                Sign in
-              </Button>
-              <Button size="sm" className="justify-center rounded-full">
+              <Button
+                size="sm"
+                onClick={() => {
+                  setOpen(false);
+                  setIsEnquiryOpen(true);
+                }}
+                className="justify-center rounded-full"
+              >
                 Get started
               </Button>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isEnquiryOpen && (
+          <EnquiryModal onClose={() => setIsEnquiryOpen(false)} />
         )}
       </AnimatePresence>
     </header>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -10,32 +10,37 @@ import {
   MessageSquare,
   Phone,
   User,
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/shared/glass-card";
-import { fadeUp, viewportOnce } from "@/lib/motion";
-import { siteConfig } from "@/data/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const contactPoints = [
-  {
-    icon: Phone,
-    label: "Call us",
-    value: siteConfig.whatsapp.display,
-    href: `tel:${siteConfig.whatsapp.number}`,
-  },
-  {
-    icon: Mail,
-    label: "Email us",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-  },
-];
+interface EnquiryModalProps {
+  onClose: () => void;
+}
 
-export function Enquiry() {
+export function EnquiryModal({ onClose }: EnquiryModalProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+
+  // Prevent scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  // Handle ESC key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -68,82 +73,77 @@ export function Enquiry() {
   }
 
   return (
-    <section id="enquiry" className="relative px-4 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-        >
-          <GlassCard className="grid gap-10 p-6 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-            <div className="flex flex-col gap-6">
-              <span className="flex items-center gap-3 text-sm font-medium tracking-wide text-primary uppercase">
-                <span className="h-px w-8 bg-primary/40" />
-                Get In Touch
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      {/* Backdrop overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="fixed inset-0 bg-black/60 backdrop-blur-md"
+      />
+
+      {/* Modal Card */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 16 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-lg"
+      >
+        <GlassCard className="relative overflow-hidden border border-white/10 p-6 sm:p-8 shadow-2xl">
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/5"
+            aria-label="Close modal"
+          >
+            <X className="size-5" />
+          </button>
+
+          {status === "success" ? (
+            <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 text-center">
+              <span className="flex size-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+                <CheckCircle className="size-7" />
               </span>
-              <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-                Ready to Scale Your{" "}
-                <span className="text-gradient-primary">Shopify Store?</span>
-              </h2>
-              <p className="max-w-md text-muted-foreground">
-                Tell us a little about your project and we&rsquo;ll get back to
-                you within one business day. Prefer to talk right now? Reach us
-                on WhatsApp, phone, or email.
+              <h3 className="text-xl font-semibold text-white">
+                Thanks, we&rsquo;ve got it.
+              </h3>
+              <p className="max-w-sm text-sm text-muted-foreground">
+                Our team will reach out within one business day. In the meantime, feel free to check your inbox for an acknowledgment email.
               </p>
-
-              <div className="mt-2 flex flex-col gap-4 border-t border-white/[0.06] pt-6">
-                {contactPoints.map((point) => (
-                  <a
-                    key={point.label}
-                    href={point.href}
-                    className="group flex items-center gap-4 text-left"
-                  >
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-primary/40 text-primary transition-colors group-hover:bg-primary/10">
-                      <point.icon className="size-5" />
-                    </span>
-                    <span className="flex flex-col">
-                      <span className="text-xs tracking-wide text-muted-foreground uppercase">
-                        {point.label}
-                      </span>
-                      <span className="text-base font-semibold text-white transition-colors group-hover:text-primary">
-                        {point.value}
-                      </span>
-                    </span>
-                  </a>
-                ))}
-              </div>
+              <Button
+                onClick={() => {
+                  setStatus("idle");
+                  onClose();
+                }}
+                className="mt-4 rounded-full h-10 px-6 text-sm"
+              >
+                Close Window
+              </Button>
             </div>
-
-            {status === "success" ? (
-              <div className="flex min-h-[400px] flex-col items-center justify-center gap-4 rounded-2xl border border-primary/30 bg-primary/[0.04] p-8 text-center">
-                <span className="flex size-14 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <CheckCircle className="size-7" />
+          ) : (
+            <div className="flex flex-col gap-6">
+              <div>
+                <span className="flex items-center gap-3 text-xs font-semibold tracking-wide text-primary uppercase mb-2">
+                  <span className="h-px w-6 bg-primary/40" />
+                  Get In Touch
                 </span>
-                <h3 className="text-xl font-semibold text-white">
-                  Thanks, we&rsquo;ve got it.
-                </h3>
-                <p className="max-w-sm text-sm text-muted-foreground">
-                  Our team will reach out within one business day. In the
-                  meantime, feel free to WhatsApp us for anything urgent.
+                <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                  Ready to Scale Your{" "}
+                  <span className="text-gradient-primary">Shopify Store?</span>
+                </h2>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Tell us a little about your project and we&rsquo;ll get back to you within one business day.
                 </p>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() => setStatus("idle")}
-                  className="mt-2 h-10 rounded-full border-white/10 bg-white/[0.02] px-5 text-sm text-white hover:bg-white/[0.06]"
-                >
-                  Send another
-                </Button>
               </div>
-            ) : (
+
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field
                     icon={User}
                     label="Full name"
                     name="name"
-                    type="text"
                     placeholder="Jane Doe"
                     required
                   />
@@ -182,7 +182,7 @@ export function Enquiry() {
                   type="submit"
                   size="lg"
                   disabled={status === "submitting"}
-                  className="mt-2 h-12 w-full gap-2 rounded-full text-sm font-semibold sm:w-fit"
+                  className="mt-2 h-12 w-full gap-2 rounded-full text-sm font-semibold"
                 >
                   {status === "submitting" ? (
                     <>
@@ -197,15 +197,15 @@ export function Enquiry() {
                   )}
                 </Button>
 
-                <p className="text-xs text-muted-foreground">
+                <p className="text-[10px] text-muted-foreground text-center">
                   We&rsquo;ll only use your details to reply to this enquiry.
                 </p>
               </form>
-            )}
-          </GlassCard>
-        </motion.div>
-      </div>
-    </section>
+            </div>
+          )}
+        </GlassCard>
+      </motion.div>
+    </div>
   );
 }
 
@@ -244,7 +244,7 @@ function Field({
             name={name}
             placeholder={placeholder}
             required={required}
-            rows={4}
+            rows={3}
             className={`${shared} resize-none py-3`}
           />
         ) : (

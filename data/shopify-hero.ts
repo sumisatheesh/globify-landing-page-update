@@ -58,16 +58,16 @@ export type HeroClientLogo = {
 
 export const heroClientLogos: HeroClientLogo[] = [
   { name: "Wilson", image: "/logos/wilson.svg" },
-  { name: "SALOMON", image: "/logos/salomon.webp" },
-  { name: "Judith Leiber", image: "/logos/judith-leiber.avif" },
-  { name: "Kat Maconie", image: "/logos/kat-maconie.avif" },
-  { name: "instaRUNWAY", image: "/logos/instarunway.avif" },
-  { name: "MR-START", image: "/logos/mr-start.avif" },
-  { name: "Moher", image: "/logos/moher.avif" },
-  { name: "Moto Avenue", image: "/logos/moto-avenue.webp" },
+  { name: "SALOMON", image: "/logos/salomon-trim.webp" },
+  { name: "Judith Leiber", image: "/logos/judith-leiber-trim.avif" },
+  { name: "Kat Maconie", image: "/logos/kat-maconie-trim.avif" },
+  { name: "instaRUNWAY", image: "/logos/instarunway-trim.avif" },
+  { name: "MR-START", image: "/logos/mr-start-trim.avif" },
+  { name: "Moher", image: "/logos/moher-trim.avif" },
+  { name: "Moto Avenue", image: "/logos/moto-avenue-trim.webp" },
   {
     name: "Creative Florist",
-    image: "/logos/creative-florist.webp",
+    image: "/logos/creative-florist-trim.webp",
     needsLightBg: true,
   },
 ];

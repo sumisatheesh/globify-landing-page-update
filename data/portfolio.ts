@@ -51,7 +51,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Performance Optimization"],
     image: "/portfolio/salomon-cover.png",
-    logo: "/logos/salomon.webp",
+    logo: "/logos/salomon-trim.webp",
   },
   {
     brand: "Judith Leiber Couture",
@@ -65,7 +65,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Luxury E-Commerce"],
     image: "/portfolio/judith-leiber-cover.png",
-    logo: "/logos/judith-leiber.avif",
+    logo: "/logos/judith-leiber-trim.avif",
   },
   {
     brand: "Kat Maconie",
@@ -79,7 +79,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Mobile Optimization"],
     image: "/portfolio/kat-maconie-cover.png",
-    logo: "/logos/kat-maconie.avif",
+    logo: "/logos/kat-maconie-trim.avif",
   },
   {
     brand: "InstaRunway",
@@ -93,7 +93,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Multi-Brand Storefront"],
     image: "/portfolio/instarunway-cover.png",
-    logo: "/logos/instarunway.avif",
+    logo: "/logos/instarunway-trim.avif",
   },
   {
     brand: "Mr Start",
@@ -107,7 +107,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Luxury E-Commerce"],
     image: "/portfolio/mr-start-cover.png",
-    logo: "/logos/mr-start.avif",
+    logo: "/logos/mr-start-trim.avif",
   },
   {
     brand: "Moher",
@@ -121,7 +121,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "UAE E-Commerce"],
     image: "/portfolio/moher-cover.png",
-    logo: "/logos/moher.avif",
+    logo: "/logos/moher-trim.avif",
   },
   {
     brand: "Moto Avenue",
@@ -135,7 +135,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "Catalog Management"],
     image: "/portfolio/moto-avenue-cover.png",
-    logo: "/logos/moto-avenue.webp",
+    logo: "/logos/moto-avenue-trim.webp",
   },
   {
     brand: "Creative Florist",
@@ -149,6 +149,6 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Shopify Development", "UAE E-Commerce"],
     image: "/portfolio/creative-florist-cover.png",
-    logo: "/logos/creative-florist.webp",
+    logo: "/logos/creative-florist-trim.webp",
   },
 ];
