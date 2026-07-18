@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Quote, Star, ArrowLeft, ArrowRight } from "lucide-react";
+import { Quote, ArrowLeft, ArrowRight } from "lucide-react";
 import { GlassCard } from "@/components/shared/glass-card";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { testimonials } from "@/data/testimonials";
@@ -58,7 +58,9 @@ export function Testimonials() {
             type="button"
             aria-label="Previous testimonial"
             onClick={() => scrollByCard(-1)}
-            className="glass absolute top-1/2 left-0 z-10 hidden size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white/70 transition-colors hover:text-primary lg:-left-6 lg:flex"
+            className={`glass absolute top-1/2 left-0 z-10 hidden size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white/70 transition-colors hover:text-primary lg:-left-6 ${
+              testimonials.length > 3 ? "lg:flex" : "lg:hidden"
+            }`}
           >
             <ArrowLeft className="size-4" />
           </button>
@@ -66,7 +68,9 @@ export function Testimonials() {
             type="button"
             aria-label="Next testimonial"
             onClick={() => scrollByCard(1)}
-            className="glass absolute top-1/2 right-0 z-10 hidden size-11 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white/70 transition-colors hover:text-primary lg:-right-6 lg:flex"
+            className={`glass absolute top-1/2 right-0 z-10 hidden size-11 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white/70 transition-colors hover:text-primary lg:-right-6 ${
+              testimonials.length > 3 ? "lg:flex" : "lg:hidden"
+            }`}
           >
             <ArrowRight className="size-4" />
           </button>
@@ -84,26 +88,18 @@ export function Testimonials() {
                 key={testimonial.name}
                 data-card
                 variants={fadeUp}
-                className="w-[85%] shrink-0 snap-start sm:w-[47%] lg:w-[calc(25%-12px)]"
+                className="w-[85%] shrink-0 snap-start sm:w-[47%] lg:w-[calc(33.33%-11px)]"
               >
                 <GlassCard className="flex h-full flex-col gap-5">
                   <div className="flex items-center justify-between">
                     <Quote className="size-7 fill-primary text-primary" />
-                    <div className="flex items-center gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="size-3.5 fill-primary text-primary"
-                        />
-                      ))}
-                    </div>
                   </div>
                   <p className="flex-1 text-sm leading-relaxed text-white/85">
                     {testimonial.quote}
                   </p>
                   <span className="h-px w-8 bg-primary/50" />
                   <div className="flex items-center gap-3">
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-[10px] font-bold tracking-wide text-primary">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-base font-bold text-white">
                       {testimonial.brand}
                     </div>
                     <div className="flex flex-col">

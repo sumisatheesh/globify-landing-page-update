@@ -13,7 +13,7 @@ export function Footer() {
               alt="Globify"
               width={508}
               height={299}
-              className="h-8 w-auto"
+              className="h-25 w-auto sm:h-28"
             />
           </Link>
           <p className="max-w-xs text-sm text-muted-foreground">

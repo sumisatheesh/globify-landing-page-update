@@ -25,25 +25,31 @@ export const footerLinks = {
     { label: "Our Work", href: "#work" },
   ],
   Company: [
-    { label: "About", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "About", href: "https://www.globify.ae/about" },
+    { label: "Careers", href: "#enquiry" },
+    { label: "Blog", href: "https://www.globify.ae/blog" },
+    { label: "Contact", href: "#enquiry" },
   ],
   Resources: [
     { label: "FAQ", href: "#faq" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "Case Studies", href: "#work" },
-    { label: "Get a Quote", href: "#" },
+    { label: "Get a Quote", href: "#enquiry" },
   ],
   Legal: [
-    { label: "Privacy", href: "#" },
-    { label: "Terms", href: "#" },
+    { label: "Privacy", href: "https://globify.in/privacy-policy/" },
+    { label: "Terms", href: "https://globify.in/privacy-policy/" },
   ],
 };
 
 export const socialLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Twitter", href: "#" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/globify_software_solutions/",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/globify-software-solutions-pvt-ltd/posts/?feedView=all",
+  },
+  { label: "Facebook", href: "https://www.facebook.com/globifydigital" },
 ];

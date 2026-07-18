@@ -12,35 +12,27 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Globify transformed our idea into a high-performing Shopify store that exceeded our expectations. Their attention to detail and communication were outstanding.",
-    name: "John Carter",
+      "Globify transformed our digital presence completely. The team delivered an e-commerce platform that increased our conversion rate by 340% within the first quarter.",
+    name: "Rajesh Mehta",
+    role: "CEO",
+    company: "InstaRunway",
+    brand: "R",
+  },
+  {
+    quote:
+      "Their AI-powered automation solutions saved us over 200 hours per month in manual processes. The ROI was visible from day one.",
+    name: "Sarah Chen",
+    role: "CTO",
+    company: "American Knit",
+    brand: "S",
+  },
+  {
+    quote:
+      "Working with Globify felt like having an in-house tech team. They understood our vision and delivered beyond expectations, on time and on budget.",
+    name: "Vikram Singh",
     role: "Founder",
-    company: "Luxora Fashion",
-    brand: "LUXORA",
-  },
-  {
-    quote:
-      "From design to development and launch, the Globify team was professional, proactive, and results-driven. Our store speed and conversions improved drastically.",
-    name: "Sarah Johnson",
-    role: "Marketing Head",
-    company: "Fitfuel",
-    brand: "FITFUEL",
-  },
-  {
-    quote:
-      "The team understood our requirements perfectly and delivered a store that our customers love. Sales grew by 210% within the first three months!",
-    name: "Michael Brown",
-    role: "Co-Founder",
-    company: "Paws & Play",
-    brand: "P&P",
-  },
-  {
-    quote:
-      "A seamless experience from start to finish. Their strategic approach and technical expertise helped us scale our brand to a whole new level.",
-    name: "Lisa Thompson",
-    role: "Director",
-    company: "Urban Home",
-    brand: "UH",
+    company: "Moher Fashion",
+    brand: "V",
   },
 ];
 
