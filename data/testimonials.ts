@@ -16,7 +16,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Globify has been a trusted partner in the development and growth of our InstaRunway and Judith Leiber online stores. Their team consistently delivered premium storefronts, seamless functionality, and strategic support that helped strengthen our digital presence and customer experience across both brands.",
-    name: "J Kumar",
+    name: "Christopher Reed",
     role: "Executive",
     company: "JSK Fashion International",
     brand: "J",
@@ -34,7 +34,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Globify delivered an outstanding e-commerce experience for our Creative Florist brand. Their team understood our requirements from day one and created a store that is visually appealing, easy to manage, and built for growth.",
     name: "Mr. Najeeb",
-    role: "Executive",
+    role: "Founder",
     company: "Creative Florist UAE",
     brand: "c",
   },
