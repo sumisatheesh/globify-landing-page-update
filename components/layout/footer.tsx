@@ -53,15 +53,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-16 flex max-w-6xl flex-col gap-4 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-16 flex max-w-6xl flex-col gap-4 border-t border-white/[0.06] pt-6 pb-20 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:pb-0">
         <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-        <Image
-          src="/certifications/shopify-partner-badge.png"
-          alt="Shopify Partner"
-          width={500}
-          height={157}
-          className="h-6 w-auto opacity-90"
-        />
+
       </div>
     </footer>
   );
